@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */; };
+		C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68461EF97AEA00A76B60 /* ViewController.swift */; };
+		C9BA684A1EF97AEA00A76B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BA68481EF97AEA00A76B60 /* Main.storyboard */; };
+		C9BA684C1EF97AEA00A76B60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BA684B1EF97AEA00A76B60 /* Assets.xcassets */; };
+		C9BA684F1EF97AEA00A76B60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BA684D1EF97AEA00A76B60 /* LaunchScreen.storyboard */; };
+		C9BA685A1EF97AEA00A76B60 /* DiodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68591EF97AEA00A76B60 /* DiodonTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9BA68561EF97AEA00A76B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9BA68391EF97AEA00A76B60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9BA68401EF97AEA00A76B60;
+			remoteInfo = Diodon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C9BA68411EF97AEA00A76B60 /* Diodon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diodon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9BA68461EF97AEA00A76B60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C9BA68491EF97AEA00A76B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9BA684B1EF97AEA00A76B60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9BA684E1EF97AEA00A76B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9BA68501EF97AEA00A76B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9BA68551EF97AEA00A76B60 /* DiodonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiodonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9BA68591EF97AEA00A76B60 /* DiodonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiodonTests.swift; sourceTree = "<group>"; };
+		C9BA685B1EF97AEA00A76B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9BA683E1EF97AEA00A76B60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9BA68521EF97AEA00A76B60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C9BA68381EF97AEA00A76B60 = {
+			isa = PBXGroup;
+			children = (
+				C9BA68431EF97AEA00A76B60 /* Diodon */,
+				C9BA68581EF97AEA00A76B60 /* DiodonTests */,
+				C9BA68421EF97AEA00A76B60 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C9BA68421EF97AEA00A76B60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9BA68411EF97AEA00A76B60 /* Diodon.app */,
+				C9BA68551EF97AEA00A76B60 /* DiodonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9BA68431EF97AEA00A76B60 /* Diodon */ = {
+			isa = PBXGroup;
+			children = (
+				C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */,
+				C9BA68461EF97AEA00A76B60 /* ViewController.swift */,
+				C9BA68481EF97AEA00A76B60 /* Main.storyboard */,
+				C9BA684B1EF97AEA00A76B60 /* Assets.xcassets */,
+				C9BA684D1EF97AEA00A76B60 /* LaunchScreen.storyboard */,
+				C9BA68501EF97AEA00A76B60 /* Info.plist */,
+			);
+			path = Diodon;
+			sourceTree = "<group>";
+		};
+		C9BA68581EF97AEA00A76B60 /* DiodonTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9BA68591EF97AEA00A76B60 /* DiodonTests.swift */,
+				C9BA685B1EF97AEA00A76B60 /* Info.plist */,
+			);
+			path = DiodonTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9BA68401EF97AEA00A76B60 /* Diodon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9BA685E1EF97AEA00A76B60 /* Build configuration list for PBXNativeTarget "Diodon" */;
+			buildPhases = (
+				C9BA683D1EF97AEA00A76B60 /* Sources */,
+				C9BA683E1EF97AEA00A76B60 /* Frameworks */,
+				C9BA683F1EF97AEA00A76B60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Diodon;
+			productName = Diodon;
+			productReference = C9BA68411EF97AEA00A76B60 /* Diodon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C9BA68541EF97AEA00A76B60 /* DiodonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9BA68611EF97AEA00A76B60 /* Build configuration list for PBXNativeTarget "DiodonTests" */;
+			buildPhases = (
+				C9BA68511EF97AEA00A76B60 /* Sources */,
+				C9BA68521EF97AEA00A76B60 /* Frameworks */,
+				C9BA68531EF97AEA00A76B60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9BA68571EF97AEA00A76B60 /* PBXTargetDependency */,
+			);
+			name = DiodonTests;
+			productName = DiodonTests;
+			productReference = C9BA68551EF97AEA00A76B60 /* DiodonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9BA68391EF97AEA00A76B60 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Ambroise Collon";
+				TargetAttributes = {
+					C9BA68401EF97AEA00A76B60 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 76QL65N5BA;
+						ProvisioningStyle = Automatic;
+					};
+					C9BA68541EF97AEA00A76B60 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 76QL65N5BA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C9BA68401EF97AEA00A76B60;
+					};
+				};
+			};
+			buildConfigurationList = C9BA683C1EF97AEA00A76B60 /* Build configuration list for PBXProject "Diodon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9BA68381EF97AEA00A76B60;
+			productRefGroup = C9BA68421EF97AEA00A76B60 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9BA68401EF97AEA00A76B60 /* Diodon */,
+				C9BA68541EF97AEA00A76B60 /* DiodonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9BA683F1EF97AEA00A76B60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9BA684F1EF97AEA00A76B60 /* LaunchScreen.storyboard in Resources */,
+				C9BA684C1EF97AEA00A76B60 /* Assets.xcassets in Resources */,
+				C9BA684A1EF97AEA00A76B60 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9BA68531EF97AEA00A76B60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9BA683D1EF97AEA00A76B60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */,
+				C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9BA68511EF97AEA00A76B60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9BA685A1EF97AEA00A76B60 /* DiodonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9BA68571EF97AEA00A76B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9BA68401EF97AEA00A76B60 /* Diodon */;
+			targetProxy = C9BA68561EF97AEA00A76B60 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C9BA68481EF97AEA00A76B60 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9BA68491EF97AEA00A76B60 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C9BA684D1EF97AEA00A76B60 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9BA684E1EF97AEA00A76B60 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9BA685C1EF97AEA00A76B60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9BA685D1EF97AEA00A76B60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9BA685F1EF97AEA00A76B60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 76QL65N5BA;
+				INFOPLIST_FILE = Diodon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ambroisecollon.Diodon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C9BA68601EF97AEA00A76B60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 76QL65N5BA;
+				INFOPLIST_FILE = Diodon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ambroisecollon.Diodon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C9BA68621EF97AEA00A76B60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 76QL65N5BA;
+				INFOPLIST_FILE = DiodonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ambroisecollon.DiodonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diodon.app/Diodon";
+			};
+			name = Debug;
+		};
+		C9BA68631EF97AEA00A76B60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 76QL65N5BA;
+				INFOPLIST_FILE = DiodonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ambroisecollon.DiodonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diodon.app/Diodon";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9BA683C1EF97AEA00A76B60 /* Build configuration list for PBXProject "Diodon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9BA685C1EF97AEA00A76B60 /* Debug */,
+				C9BA685D1EF97AEA00A76B60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9BA685E1EF97AEA00A76B60 /* Build configuration list for PBXNativeTarget "Diodon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9BA685F1EF97AEA00A76B60 /* Debug */,
+				C9BA68601EF97AEA00A76B60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C9BA68611EF97AEA00A76B60 /* Build configuration list for PBXNativeTarget "DiodonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9BA68621EF97AEA00A76B60 /* Debug */,
+				C9BA68631EF97AEA00A76B60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9BA68391EF97AEA00A76B60 /* Project object */;
+}
