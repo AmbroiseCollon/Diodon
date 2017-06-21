@@ -10,10 +10,17 @@ import XCTest
 @testable import Diodon
 
 class DiodonTests: XCTestCase {
-    
+
+    var grid = Grid(width: 0, height: 0)
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        grid = Grid(matrix: [
+            [Cell(type: .bomb), Cell(type: .plain), Cell(type: .plain)],
+            [Cell(type: .bomb), Cell(type: .plain), Cell(type: .plain)],
+            [Cell(type: .plain), Cell(type: .plain), Cell(type: .plain)],
+            [Cell(type: .plain), Cell(type: .plain), Cell(type: .bomb)],
+            ])
     }
     
     override func tearDown() {
@@ -21,16 +28,71 @@ class DiodonTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCreateCell() {
+        let cell = Cell()
+        XCTAssertNotNil(cell)
+        XCTAssert(cell.type == .plain || cell.type == .bomb)
+        XCTAssertEqual(cell.state, .hidden)
+        XCTAssertEqual(cell.neighboringBombCount, 0)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+
+    func testCreateGrid() {
+        XCTAssertNotNil(grid)
+        XCTAssertEqual(grid.width, 3)
+        XCTAssertEqual(grid.height, 4)
+    }
+
+    func testRemoveFirstAndAppendLastRow() {
+        var customGrid = Grid(width: 7, height: 10)
+        customGrid.removeFirstAndAppendRow()
+        XCTAssertEqual(customGrid.height, 10)
+    }
+
+    func testCalculateNeighboringBombsCount() {
+        grid.calculateAllNeighboringBombCounts()
+
+        let result = grid.matrix.map { (row) -> [Int] in
+            return row.map({ (cell) -> Int in
+                return cell.neighboringBombCount
+            })
         }
+        let flattenedResult = Array(result.joined())
+
+        let expected = [
+            2,2,0,
+            2,2,0,
+            1,2,1,
+            0,1,1,
+        ]
+
+        XCTAssertEqual(expected, flattenedResult)
     }
-    
+
+
+    func testRevealCellWhenItContainsBomb() {
+        grid.revealCellAt(row: 0, column: 0)
+        XCTAssertEqual(grid.matrix[0][0].state, .exploded)
+    }
+
+    func testRevealCellWhenItsPlain() {
+        grid.calculateAllNeighboringBombCounts()
+        grid.revealCellAt(row: 0, column: 1)
+        XCTAssertEqual(grid.matrix[0][1].state, .revealed)
+        XCTAssertNotEqual(grid.matrix[0][0].state, .revealed)
+        XCTAssertNotEqual(grid.matrix[0][2].state, .revealed)
+        XCTAssertNotEqual(grid.matrix[1][0].state, .revealed)
+        XCTAssertNotEqual(grid.matrix[1][1].state, .revealed)
+        XCTAssertNotEqual(grid.matrix[1][2].state, .revealed)
+    }
+
+    func testRevealCellWhenItsPlainAndWithoutNeighboringBombs() {
+        grid.calculateAllNeighboringBombCounts()
+        grid.revealCellAt(row: 0, column: 2)
+        XCTAssertEqual(grid.matrix[0][2].state, .revealed)
+        XCTAssertEqual(grid.matrix[0][1].state, .revealed)
+        XCTAssertEqual(grid.matrix[1][1].state, .revealed)
+        XCTAssertEqual(grid.matrix[1][2].state, .revealed)
+        XCTAssertEqual(grid.matrix[2][1].state, .revealed)
+        XCTAssertEqual(grid.matrix[2][2].state, .revealed)
+    }
 }

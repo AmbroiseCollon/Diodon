@@ -13,6 +13,9 @@
 		C9BA684C1EF97AEA00A76B60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9BA684B1EF97AEA00A76B60 /* Assets.xcassets */; };
 		C9BA684F1EF97AEA00A76B60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BA684D1EF97AEA00A76B60 /* LaunchScreen.storyboard */; };
 		C9BA685A1EF97AEA00A76B60 /* DiodonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68591EF97AEA00A76B60 /* DiodonTests.swift */; };
+		C9BA68651EF97AFC00A76B60 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68641EF97AFC00A76B60 /* Cell.swift */; };
+		C9BA68671EF97DCD00A76B60 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68661EF97DCD00A76B60 /* Grid.swift */; };
+		C9BA686A1EF9815C00A76B60 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68691EF9815C00A76B60 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		C9BA68551EF97AEA00A76B60 /* DiodonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiodonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BA68591EF97AEA00A76B60 /* DiodonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiodonTests.swift; sourceTree = "<group>"; };
 		C9BA685B1EF97AEA00A76B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9BA68641EF97AFC00A76B60 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = ../Cell.swift; sourceTree = "<group>"; };
+		C9BA68661EF97DCD00A76B60 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		C9BA68691EF9815C00A76B60 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */,
+				C9BA68691EF9815C00A76B60 /* Helper.swift */,
+				C9BA68681EF97DD300A76B60 /* Model */,
 				C9BA68461EF97AEA00A76B60 /* ViewController.swift */,
 				C9BA68481EF97AEA00A76B60 /* Main.storyboard */,
 				C9BA684B1EF97AEA00A76B60 /* Assets.xcassets */,
@@ -94,6 +102,15 @@
 				C9BA685B1EF97AEA00A76B60 /* Info.plist */,
 			);
 			path = DiodonTests;
+			sourceTree = "<group>";
+		};
+		C9BA68681EF97DD300A76B60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9BA68641EF97AFC00A76B60 /* Cell.swift */,
+				C9BA68661EF97DCD00A76B60 /* Grid.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +220,9 @@
 			files = (
 				C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */,
 				C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */,
+				C9BA68651EF97AFC00A76B60 /* Cell.swift in Sources */,
+				C9BA68671EF97DCD00A76B60 /* Grid.swift in Sources */,
+				C9BA686A1EF9815C00A76B60 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
