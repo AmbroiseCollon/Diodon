@@ -51,48 +51,49 @@ class DiodonTests: XCTestCase {
     func testCalculateNeighboringBombsCount() {
         grid.calculateAllNeighboringBombCounts()
 
-        let result = grid.matrix.map { (row) -> [Int] in
-            return row.map({ (cell) -> Int in
-                return cell.neighboringBombCount
-            })
+        var result = [Int]()
+        for row in 0..<grid.height {
+            for column in 0..<grid.width {
+                let bombCount = grid.getCellFor(row: row, column: column).neighboringBombCount
+                result.append(bombCount)
+            }
         }
-        let flattenedResult = Array(result.joined())
 
         let expected = [
-            2,2,0,
-            2,2,0,
+            1,2,0,
+            1,2,0,
             1,2,1,
-            0,1,1,
+            0,1,0
         ]
 
-        XCTAssertEqual(expected, flattenedResult)
+        XCTAssertEqual(expected, result)
     }
 
 
     func testRevealCellWhenItContainsBomb() {
         grid.revealCellAt(row: 0, column: 0)
-        XCTAssertEqual(grid.matrix[0][0].state, .exploded)
+        XCTAssertEqual(grid.getCellFor(row: 0, column: 0).state, .exploded)
     }
 
     func testRevealCellWhenItsPlain() {
         grid.calculateAllNeighboringBombCounts()
         grid.revealCellAt(row: 0, column: 1)
-        XCTAssertEqual(grid.matrix[0][1].state, .revealed)
-        XCTAssertNotEqual(grid.matrix[0][0].state, .revealed)
-        XCTAssertNotEqual(grid.matrix[0][2].state, .revealed)
-        XCTAssertNotEqual(grid.matrix[1][0].state, .revealed)
-        XCTAssertNotEqual(grid.matrix[1][1].state, .revealed)
-        XCTAssertNotEqual(grid.matrix[1][2].state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 0, column: 1).state, .revealed)
+        XCTAssertNotEqual(grid.getCellFor(row: 0, column: 0).state, .revealed)
+        XCTAssertNotEqual(grid.getCellFor(row: 0, column: 2).state, .revealed)
+        XCTAssertNotEqual(grid.getCellFor(row: 1, column: 0).state, .revealed)
+        XCTAssertNotEqual(grid.getCellFor(row: 1, column: 1).state, .revealed)
+        XCTAssertNotEqual(grid.getCellFor(row: 1, column: 2).state, .revealed)
     }
 
     func testRevealCellWhenItsPlainAndWithoutNeighboringBombs() {
         grid.calculateAllNeighboringBombCounts()
         grid.revealCellAt(row: 0, column: 2)
-        XCTAssertEqual(grid.matrix[0][2].state, .revealed)
-        XCTAssertEqual(grid.matrix[0][1].state, .revealed)
-        XCTAssertEqual(grid.matrix[1][1].state, .revealed)
-        XCTAssertEqual(grid.matrix[1][2].state, .revealed)
-        XCTAssertEqual(grid.matrix[2][1].state, .revealed)
-        XCTAssertEqual(grid.matrix[2][2].state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 0, column: 2).state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 0, column: 1).state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 1, column: 1).state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 1, column: 2).state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 2, column: 1).state, .revealed)
+        XCTAssertEqual(grid.getCellFor(row: 2, column: 2).state, .revealed)
     }
 }

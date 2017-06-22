@@ -9,7 +9,7 @@
 import Foundation
 
 struct Grid {
-    var matrix = [[Cell]]()
+    private var matrix = [[Cell]]()
 
     var width: Int {
         if let row = matrix.first {
@@ -30,10 +30,17 @@ struct Grid {
         let row = Array(repeating: Cell(), count: width)
         self.matrix = Array(repeating: row, count: height)
     }
-}
 
-// MARK: - Remove first and append row
-extension Grid {
+    // MARK: - Access and modify specific cell
+    func getCellFor(row: Int, column: Int) -> Cell {
+        return matrix[row][column]
+    }
+
+    mutating func set(cell: Cell, forRow row: Int, column: Int) {
+        matrix[row][column] = cell
+    }
+
+	// MARK: - Remove first and append row
     mutating func removeFirstAndAppendRow() {
         removeFirstRow()
         appendRow()
@@ -47,14 +54,39 @@ extension Grid {
         let newRow = Array(repeating: Cell(), count: width)
         matrix.append(newRow)
     }
+
+    // MARK: - Get neighbours indexes
+    func getNeighboursIndexesFor(row: Int, column: Int) -> [(Int, Int)] {
+        let ranges = getNeighboursRangesFor(row: row, column: column)
+
+        var indexes = [(Int, Int)]()
+        for rowIndex in ranges.rows {
+            for columnIndex in ranges.columns {
+                if !(rowIndex == row && columnIndex == column) {
+                    indexes.append((row: rowIndex, column: columnIndex))
+                }
+            }
+        }
+
+        return indexes
+    }
+
+    private func getNeighboursRangesFor(row: Int, column: Int)
+        -> (rows: CountableClosedRange<Int>, columns: CountableClosedRange<Int>) {
+            let rowMin = Int.maximum(0, row - 1)
+            let rowMax = Int.minimum(height - 1, row + 1)
+            let columnMin = Int.maximum(0, column - 1)
+            let columnMax = Int.minimum(width - 1, column + 1)
+
+            return (rows: rowMin...rowMax, columns: columnMin...columnMax)
+    }
 }
 
-// MARK: - Calculate all neighboting bomb counts
+// MARK: - Calculate all neighboring bomb counts
 extension Grid {
     mutating func calculateAllNeighboringBombCounts() {
-        for rowIndex in 0..<matrix.count {
-            let row = matrix[rowIndex]
-            for columnIndex in 0..<row.count {
+        for rowIndex in 0..<height {
+            for columnIndex in 0..<width {
                 calculateAllNeighboringBombCountsForCellAt(row: rowIndex, column: columnIndex)
             }
         }
@@ -65,40 +97,40 @@ extension Grid {
         let neighboringBombedCells = neighboringCells.filter { (cell) -> Bool in
             return cell.type == .bomb
         }
-        matrix[row][column].neighboringBombCount = neighboringBombedCells.count
+        var cell = getCellFor(row: row, column: column)
+        cell.neighboringBombCount = neighboringBombedCells.count
+        set(cell: cell, forRow: row, column: column)
     }
 
 
     private func getNeighboringCellsFor(row: Int, column: Int) -> [Cell] {
-        let rowMin = Int.maximum(0, row - 1)
-        let rowMax = Int.minimum(height - 1, row + 1)
-        let columnMin = Int.maximum(0, column - 1)
-        let columnMax = Int.minimum(width - 1, column + 1)
-
+        let indexes = getNeighboursIndexesFor(row: row, column: column)
         var cells = [Cell]()
-        for rowIndex in rowMin...rowMax {
-            for columnIndex in columnMin...columnMax {
-                cells.append(matrix[rowIndex][columnIndex])
-            }
+
+        for (rowIndex, columnIndex) in indexes {
+            let cell = getCellFor(row: rowIndex, column: columnIndex)
+            cells.append(cell)
+
         }
 
         return cells
     }
-
 }
 
 // MARK: - Did reveal cell
 extension Grid {
     mutating func revealCellAt(row: Int, column: Int) {
-        let cell = matrix[row][column]
+        var cell = getCellFor(row: row, column: column)
 
         switch cell.state {
         case .hidden, .flagged:
             switch cell.type {
             case .bomb:
-                matrix[row][column].state = .exploded
+                cell.state = .exploded
+                set(cell: cell, forRow: row, column: column)
             case .plain:
-                matrix[row][column].state = .revealed
+                cell.state = .revealed
+                set(cell: cell, forRow: row, column: column)
                 if cell.shouldRevealNeighbours {
                     revealNeighboursFor(row: row, column: column)
                 }
@@ -106,31 +138,13 @@ extension Grid {
         default:
             break
         }
+
     }
 
     private mutating func revealNeighboursFor(row: Int, column: Int) {
-        let indexes = getNeighboringIndexesFor(row: row, column: column)
-        print(indexes)
+        let indexes = getNeighboursIndexesFor(row: row, column: column)
         for (row, column) in indexes {
             revealCellAt(row: row, column: column)
         }
-    }
-
-    private func getNeighboringIndexesFor(row: Int, column: Int) -> [(Int, Int)] {
-        let rowMin = Int.maximum(0, row - 1)
-        let rowMax = Int.minimum(height - 1, row + 1)
-        let columnMin = Int.maximum(0, column - 1)
-        let columnMax = Int.minimum(width - 1, column + 1)
-
-        var indexes = [(Int, Int)]()
-        for rowIndex in rowMin...rowMax {
-            for columnIndex in columnMin...columnMax {
-                if !(rowIndex == row && columnIndex == column) {
-                    indexes.append((row: rowIndex, column: columnIndex))
-                }
-            }
-        }
-
-        return indexes
     }
 }
