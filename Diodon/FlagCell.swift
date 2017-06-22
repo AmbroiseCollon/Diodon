@@ -9,25 +9,29 @@
 import Foundation
 
 class FlagCell {
-    var grid: Grid
-    var index: GridIndex
+    var cell: Cell
 
-    init(in grid: Grid, atIndex index: GridIndex) {
-        self.grid = grid
-        self.index = index
-        self.flagCell()
+    init(cell: Cell) {
+        self.cell = cell
+        self.toggleFlagIfNeeded()
     }
 
-    func flagCell() {
-        let cell = grid.getCellFor(index: index)
-
+    private func toggleFlagIfNeeded() {
         switch cell.state {
         case .hidden:
-            cell.state = .flagged
+            flagCell()
         case .flagged:
-            cell.state = .hidden
+            hideCell()
         case .revealed, .exploded:
             break
         }
+    }
+
+    private func flagCell() {
+        cell.state = .flagged
+    }
+
+    private func hideCell() {
+        cell.state = .hidden
     }
 }

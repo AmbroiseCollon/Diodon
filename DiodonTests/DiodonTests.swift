@@ -97,34 +97,28 @@ class DiodonTests: XCTestCase {
     }
 
     func testGivenCellIsHidden_WhenFlaggingIt_ThenStateIsFlagged() {
-        _ = FlagCell(in: grid, atIndex: GridIndex(0, 0))
-        let cell = grid.getCellFor(index: GridIndex(0, 0))
+        let cell = Cell()
+        _ = FlagCell(cell: cell)
         XCTAssertEqual(cell.state, .flagged)
     }
 
     func testGivenCellIsFlagged_WhenFlaggingIt_ThenStateIsHidden() {
-        let newCell = Cell()
-        newCell.state = .flagged
+        let cell = Cell()
+        cell.state = .flagged
 
-        let aGrid = Grid(matrix: [[newCell]])
-        _ = FlagCell(in: aGrid, atIndex: GridIndex(0, 0))
+        _ = FlagCell(cell: cell)
 
-        let cell = aGrid.getCellFor(index: GridIndex(0, 0))
         XCTAssertEqual(cell.state, .hidden)
     }
 
     func testGivenCellIsRevealedOrExploded_WhenFlaggingIt_ThenStateIsNotChanged() {
-        let newCell1 = Cell()
-        newCell1.state = .revealed
-        let newCell2 = Cell()
-        newCell2.state = .exploded
+        let cell1 = Cell()
+        cell1.state = .revealed
+        let cell2 = Cell()
+        cell2.state = .exploded
 
-        let aGrid = Grid(matrix: [[newCell1, newCell2]])
-        _ = FlagCell(in: aGrid, atIndex: GridIndex(0, 0))
-        _ = FlagCell(in: aGrid, atIndex: GridIndex(0, 1))
-
-        let cell1 = aGrid.getCellFor(index: GridIndex(0, 0))
-        let cell2 = aGrid.getCellFor(index: GridIndex(0, 1))
+        _ = FlagCell(cell: cell1)
+        _ = FlagCell(cell: cell2)
 
         XCTAssertEqual(cell1.state, .revealed)
         XCTAssertEqual(cell2.state, .exploded)
