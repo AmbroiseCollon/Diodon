@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9ADAF331EFBCE8000E2763E /* RevealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADAF321EFBCE8000E2763E /* RevealCell.swift */; };
 		C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */; };
 		C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68461EF97AEA00A76B60 /* ViewController.swift */; };
 		C9BA684A1EF97AEA00A76B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BA68481EF97AEA00A76B60 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9ADAF321EFBCE8000E2763E /* RevealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealCell.swift; sourceTree = "<group>"; };
 		C9BA68411EF97AEA00A76B60 /* Diodon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diodon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9BA68461EF97AEA00A76B60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9ADAF341EFBFC7B00E2763E /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADAF321EFBCE8000E2763E /* RevealCell.swift */,
+			);
+			name = UseCase;
+			sourceTree = "<group>";
+		};
 		C9BA68381EF97AEA00A76B60 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 			children = (
 				C9BA68641EF97AFC00A76B60 /* Cell.swift */,
 				C9BA68661EF97DCD00A76B60 /* Grid.swift */,
+				C9ADAF341EFBFC7B00E2763E /* UseCase */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 				C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */,
 				C9BA68651EF97AFC00A76B60 /* Cell.swift in Sources */,
 				C9BA68671EF97DCD00A76B60 /* Grid.swift in Sources */,
+				C9ADAF331EFBCE8000E2763E /* RevealCell.swift in Sources */,
 				C9BA686A1EF9815C00A76B60 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +446,7 @@
 				C9BA68601EF97AEA00A76B60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9BA68611EF97AEA00A76B60 /* Build configuration list for PBXNativeTarget "DiodonTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +455,7 @@
 				C9BA68631EF97AEA00A76B60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

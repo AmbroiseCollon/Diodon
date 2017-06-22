@@ -12,7 +12,6 @@ import XCTest
 class DiodonTests: XCTestCase {
 
     var grid = Grid(width: 0, height: 0)
-
     override func setUp() {
         super.setUp()
         grid = Grid(matrix: [
@@ -43,7 +42,7 @@ class DiodonTests: XCTestCase {
     }
 
     func testWhenRemovingFirstRowAndAppendingNewRow_ThenHeightRemainsConstant() {
-        var customGrid = Grid(width: 7, height: 10)
+        let customGrid = Grid(width: 7, height: 10)
         customGrid.removeFirstAndAppendRow()
         XCTAssertEqual(customGrid.height, 10)
     }
@@ -71,13 +70,13 @@ class DiodonTests: XCTestCase {
 
 
     func testGivenCellContainsABomb_WhenRevealingIt_ThenItExplodes() {
-        grid.revealCellAt(index: GridIndex(0, 0))
+        _ = RevealCell(in: grid, atIndex: GridIndex(0, 1))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 0)).state, .exploded)
     }
 
     func testGivenCellIsEmptyAndNextToABomb_WhenRevealingIt_ThenItRevealsIt() {
         grid.calculateAllNeighboringBombCounts()
-        grid.revealCellAt(index: GridIndex(0, 1))
+        _ = RevealCell(in: grid, atIndex: GridIndex(0, 1))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 1)).state, .revealed)
         XCTAssertNotEqual(grid.getCellFor(index: GridIndex(0, 0)).state, .revealed)
         XCTAssertNotEqual(grid.getCellFor(index: GridIndex(0, 2)).state, .revealed)
@@ -88,7 +87,7 @@ class DiodonTests: XCTestCase {
 
     func testGivenCellIsEmptyAndHasNoBombNextToIt_WhenRevealingIt_ThenItRevealsTheCellAndTheOnesArroundItAsWell() {
         grid.calculateAllNeighboringBombCounts()
-        grid.revealCellAt(index: GridIndex(0, 2))
+        _ = RevealCell(in: grid, atIndex: GridIndex(0, 2))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 2)).state, .revealed)
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 1)).state, .revealed)
         XCTAssertEqual(grid.getCellFor(index: GridIndex(1, 1)).state, .revealed)
