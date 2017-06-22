@@ -15,6 +15,9 @@ class RevealCell {
     init(in grid: Grid, atIndex index: GridIndex) {
         self.grid = grid
         self.index = index
+    }
+
+    func execute() {
         self.revealCellAt(index: index)
     }
 

@@ -13,6 +13,9 @@ class FlagCell {
 
     init(cell: Cell) {
         self.cell = cell
+    }
+
+    func execute() {
         self.toggleFlagIfNeeded()
     }
 
