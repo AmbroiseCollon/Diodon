@@ -8,8 +8,19 @@
 
 import Foundation
 
+struct GridIndex {
+    var row: Int
+    var column: Int
+
+    init(_ row: Int, _ column: Int) {
+        self.row = row
+        self.column = column
+    }
+}
+
+
 struct Grid {
-    private var matrix = [[Cell]]()
+    fileprivate var matrix = [[Cell]]()
 
     var width: Int {
         if let row = matrix.first {
@@ -30,17 +41,21 @@ struct Grid {
         let row = Array(repeating: Cell(), count: width)
         self.matrix = Array(repeating: row, count: height)
     }
+}
 
-    // MARK: - Access and modify specific cell
-    func getCellFor(row: Int, column: Int) -> Cell {
-        return matrix[row][column]
+// MARK: - Access and modify specific cell
+extension Grid {
+    func getCellFor(index: GridIndex) -> Cell {
+        return matrix[index.row][index.column]
     }
 
-    mutating func set(cell: Cell, forRow row: Int, column: Int) {
-        matrix[row][column] = cell
+    mutating func set(cell: Cell, forIndex index: GridIndex) {
+        matrix[index.row][index.column] = cell
     }
+}
 
-	// MARK: - Remove first and append row
+// MARK: - Remove first and append row
+extension Grid {
     mutating func removeFirstAndAppendRow() {
         removeFirstRow()
         appendRow()
@@ -54,16 +69,18 @@ struct Grid {
         let newRow = Array(repeating: Cell(), count: width)
         matrix.append(newRow)
     }
+}
 
-    // MARK: - Get neighbours indexes
-    func getNeighboursIndexesFor(row: Int, column: Int) -> [(Int, Int)] {
-        let ranges = getNeighboursRangesFor(row: row, column: column)
+// MARK: - Get neighbours indexes
+extension Grid {
+    func getNeighboursIndexesFor(index: GridIndex) -> [GridIndex] {
+        let ranges = getNeighboursRangesFor(index: index)
 
-        var indexes = [(Int, Int)]()
+        var indexes = [GridIndex]()
         for rowIndex in ranges.rows {
             for columnIndex in ranges.columns {
-                if !(rowIndex == row && columnIndex == column) {
-                    indexes.append((row: rowIndex, column: columnIndex))
+                if !(rowIndex == index.row && columnIndex == index.column) {
+                    indexes.append(GridIndex(rowIndex, columnIndex))
                 }
             }
         }
@@ -71,12 +88,12 @@ struct Grid {
         return indexes
     }
 
-    private func getNeighboursRangesFor(row: Int, column: Int)
+    private func getNeighboursRangesFor(index: GridIndex)
         -> (rows: CountableClosedRange<Int>, columns: CountableClosedRange<Int>) {
-            let rowMin = Int.maximum(0, row - 1)
-            let rowMax = Int.minimum(height - 1, row + 1)
-            let columnMin = Int.maximum(0, column - 1)
-            let columnMax = Int.minimum(width - 1, column + 1)
+            let rowMin = Int.maximum(0, index.row - 1)
+            let rowMax = Int.minimum(height - 1, index.row + 1)
+            let columnMin = Int.maximum(0, index.column - 1)
+            let columnMax = Int.minimum(width - 1, index.column + 1)
 
             return (rows: rowMin...rowMax, columns: columnMin...columnMax)
     }
@@ -87,30 +104,29 @@ extension Grid {
     mutating func calculateAllNeighboringBombCounts() {
         for rowIndex in 0..<height {
             for columnIndex in 0..<width {
-                calculateAllNeighboringBombCountsForCellAt(row: rowIndex, column: columnIndex)
+                calculateAllNeighboringBombCountsForCellAt(index: GridIndex(rowIndex, columnIndex))
             }
         }
     }
 
-    private mutating func calculateAllNeighboringBombCountsForCellAt(row: Int, column: Int) {
-        let neighboringCells = getNeighboringCellsFor(row: row, column: column)
+    private mutating func calculateAllNeighboringBombCountsForCellAt(index: GridIndex) {
+        let neighboringCells = getNeighboringCellsFor(index: index)
         let neighboringBombedCells = neighboringCells.filter { (cell) -> Bool in
             return cell.type == .bomb
         }
-        var cell = getCellFor(row: row, column: column)
+        var cell = getCellFor(index: index)
         cell.neighboringBombCount = neighboringBombedCells.count
-        set(cell: cell, forRow: row, column: column)
+        set(cell: cell, forIndex: index)
     }
 
 
-    private func getNeighboringCellsFor(row: Int, column: Int) -> [Cell] {
-        let indexes = getNeighboursIndexesFor(row: row, column: column)
+    private func getNeighboringCellsFor(index: GridIndex) -> [Cell] {
+        let indexes = getNeighboursIndexesFor(index: index)
         var cells = [Cell]()
 
-        for (rowIndex, columnIndex) in indexes {
-            let cell = getCellFor(row: rowIndex, column: columnIndex)
+        for index in indexes {
+            let cell = getCellFor(index: index)
             cells.append(cell)
-
         }
 
         return cells
@@ -119,20 +135,20 @@ extension Grid {
 
 // MARK: - Did reveal cell
 extension Grid {
-    mutating func revealCellAt(row: Int, column: Int) {
-        var cell = getCellFor(row: row, column: column)
+    mutating func revealCellAt(index: GridIndex) {
+        var cell = getCellFor(index: index)
 
         switch cell.state {
         case .hidden, .flagged:
             switch cell.type {
             case .bomb:
                 cell.state = .exploded
-                set(cell: cell, forRow: row, column: column)
+                set(cell: cell, forIndex: index)
             case .plain:
                 cell.state = .revealed
-                set(cell: cell, forRow: row, column: column)
+                set(cell: cell, forIndex: index)
                 if cell.shouldRevealNeighbours {
-                    revealNeighboursFor(row: row, column: column)
+                    revealNeighboursFor(index: index)
                 }
             }
         default:
@@ -141,10 +157,10 @@ extension Grid {
 
     }
 
-    private mutating func revealNeighboursFor(row: Int, column: Int) {
-        let indexes = getNeighboursIndexesFor(row: row, column: column)
-        for (row, column) in indexes {
-            revealCellAt(row: row, column: column)
+    private mutating func revealNeighboursFor(index: GridIndex) {
+        let indexes = getNeighboursIndexesFor(index: index)
+        for neighboorIndex in indexes {
+            revealCellAt(index: neighboorIndex)
         }
     }
 }
