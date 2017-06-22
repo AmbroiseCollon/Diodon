@@ -28,7 +28,7 @@ class DiodonTests: XCTestCase {
         super.tearDown()
     }
     
-    func testCreateCell() {
+    func testWhenCreatingCell_TypeStateAndBombCountIsOK() {
         let cell = Cell()
         XCTAssertNotNil(cell)
         XCTAssert(cell.type == .plain || cell.type == .bomb)
@@ -36,19 +36,19 @@ class DiodonTests: XCTestCase {
         XCTAssertEqual(cell.neighboringBombCount, 0)
     }
 
-    func testCreateGrid() {
+    func testWhenCreatingGrid_WidthAndHeightAreOk() {
         XCTAssertNotNil(grid)
         XCTAssertEqual(grid.width, 3)
         XCTAssertEqual(grid.height, 4)
     }
 
-    func testRemoveFirstAndAppendLastRow() {
+    func testWhenRemovingFirstRowAndAppendingNewRow_ThenHeightRemainsConstant() {
         var customGrid = Grid(width: 7, height: 10)
         customGrid.removeFirstAndAppendRow()
         XCTAssertEqual(customGrid.height, 10)
     }
 
-    func testCalculateNeighboringBombsCount() {
+    func testWhenCalculatingBombCounts_TheyAreAllOK() {
         grid.calculateAllNeighboringBombCounts()
 
         var result = [Int]()
@@ -70,12 +70,12 @@ class DiodonTests: XCTestCase {
     }
 
 
-    func testRevealCellWhenItContainsBomb() {
+    func testGivenCellContainsABomb_WhenRevealingIt_ThenItExplodes() {
         grid.revealCellAt(index: GridIndex(0, 0))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 0)).state, .exploded)
     }
 
-    func testRevealCellWhenItsPlain() {
+    func testGivenCellIsEmptyAndNextToABomb_WhenRevealingIt_ThenItRevealsIt() {
         grid.calculateAllNeighboringBombCounts()
         grid.revealCellAt(index: GridIndex(0, 1))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 1)).state, .revealed)
@@ -86,7 +86,7 @@ class DiodonTests: XCTestCase {
         XCTAssertNotEqual(grid.getCellFor(index: GridIndex(1, 2)).state, .revealed)
     }
 
-    func testRevealCellWhenItsPlainAndWithoutNeighboringBombs() {
+    func testGivenCellIsEmptyAndHasNoBombNextToIt_WhenRevealingIt_ThenItRevealsTheCellAndTheOnesArroundItAsWell() {
         grid.calculateAllNeighboringBombCounts()
         grid.revealCellAt(index: GridIndex(0, 2))
         XCTAssertEqual(grid.getCellFor(index: GridIndex(0, 2)).state, .revealed)
