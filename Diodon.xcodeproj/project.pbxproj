@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9ADAF331EFBCE8000E2763E /* RevealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADAF321EFBCE8000E2763E /* RevealCell.swift */; };
+		C9ADAF391EFBFD9F00E2763E /* FlagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADAF381EFBFD9F00E2763E /* FlagCell.swift */; };
 		C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */; };
 		C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BA68461EF97AEA00A76B60 /* ViewController.swift */; };
 		C9BA684A1EF97AEA00A76B60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9BA68481EF97AEA00A76B60 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		C9ADAF321EFBCE8000E2763E /* RevealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealCell.swift; sourceTree = "<group>"; };
+		C9ADAF381EFBFD9F00E2763E /* FlagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagCell.swift; sourceTree = "<group>"; };
 		C9BA68411EF97AEA00A76B60 /* Diodon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diodon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9BA68441EF97AEA00A76B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9BA68461EF97AEA00A76B60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,8 +70,18 @@
 			isa = PBXGroup;
 			children = (
 				C9ADAF321EFBCE8000E2763E /* RevealCell.swift */,
+				C9ADAF381EFBFD9F00E2763E /* FlagCell.swift */,
 			);
 			name = UseCase;
+			sourceTree = "<group>";
+		};
+		C9ADAF351EFBFD1400E2763E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C9BA68641EF97AFC00A76B60 /* Cell.swift */,
+				C9BA68661EF97DCD00A76B60 /* Grid.swift */,
+			);
+			name = Domain;
 			sourceTree = "<group>";
 		};
 		C9BA68381EF97AEA00A76B60 = {
@@ -117,8 +129,7 @@
 		C9BA68681EF97DD300A76B60 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C9BA68641EF97AFC00A76B60 /* Cell.swift */,
-				C9BA68661EF97DCD00A76B60 /* Grid.swift */,
+				C9ADAF351EFBFD1400E2763E /* Domain */,
 				C9ADAF341EFBFC7B00E2763E /* UseCase */,
 			);
 			name = Model;
@@ -231,6 +242,7 @@
 			files = (
 				C9BA68471EF97AEA00A76B60 /* ViewController.swift in Sources */,
 				C9BA68451EF97AEA00A76B60 /* AppDelegate.swift in Sources */,
+				C9ADAF391EFBFD9F00E2763E /* FlagCell.swift in Sources */,
 				C9BA68651EF97AFC00A76B60 /* Cell.swift in Sources */,
 				C9BA68671EF97DCD00A76B60 /* Grid.swift in Sources */,
 				C9ADAF331EFBCE8000E2763E /* RevealCell.swift in Sources */,
