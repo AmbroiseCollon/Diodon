@@ -17,7 +17,7 @@ enum CellState {
 }
 
 class Cell {
-    let type: CellType
+    var type: CellType
     var state: CellState = .hidden
     var neighboringBombCount = 0
 

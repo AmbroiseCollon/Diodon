@@ -10,37 +10,35 @@ import XCTest
 @testable import Diodon
 
 class FlagCellTests: XCTestCase {
+    let cell = Cell()
+    var flagCell = FlagCell(cell: Cell())
+
+    override func setUp() {
+        flagCell = FlagCell(cell: cell)
+    }
 
     func testGivenCellIsHidden_WhenFlaggingIt_ThenStateIsFlagged() {
-        let cell = Cell()
-        let flagCell = FlagCell(cell: cell)
+        cell.state = .hidden
         flagCell.execute()
         XCTAssertEqual(cell.state, .flagged)
     }
 
     func testGivenCellIsFlagged_WhenFlaggingIt_ThenStateIsHidden() {
-        let cell = Cell()
         cell.state = .flagged
-
-        let flagCell = FlagCell(cell: cell)
         flagCell.execute()
-
         XCTAssertEqual(cell.state, .hidden)
     }
 
-    func testGivenCellIsRevealedOrExploded_WhenFlaggingIt_ThenStateIsNotChanged() {
-        let cell1 = Cell()
-        cell1.state = .revealed
-        let cell2 = Cell()
-        cell2.state = .exploded
-
-        let flagCell = FlagCell(cell: cell1)
+    func testGivenCellIsRevealed_WhenFlaggingIt_ThenStateIsNotChanged() {
+        cell.state = .revealed
         flagCell.execute()
+        XCTAssertEqual(cell.state, .revealed)
 
-        flagCell.cell = cell2
+    }
+
+    func testGivenCellIsExploded_WhenFlaggingIt_ThenStateIsNotChanged() {
+        cell.state = .exploded
         flagCell.execute()
-
-        XCTAssertEqual(cell1.state, .revealed)
-        XCTAssertEqual(cell2.state, .exploded)
+        XCTAssertEqual(cell.state, .exploded)
     }    
 }

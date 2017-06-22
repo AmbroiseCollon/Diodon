@@ -35,11 +35,13 @@ class Grid {
 
     init(matrix: [[Cell]]) {
         self.matrix = matrix
+        calculateAllNeighboringBombCounts()
     }
 
     init(width: Int, height: Int) {
         let row = Array(repeating: Cell(), count: width)
         self.matrix = Array(repeating: row, count: height)
+        calculateAllNeighboringBombCounts()
     }
 }
 

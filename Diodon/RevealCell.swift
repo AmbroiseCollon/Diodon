@@ -9,11 +9,11 @@
 import Foundation
 
 class RevealCell {
-    var grid: Grid
+    var game: Game
     var index: GridIndex
 
-    init(in grid: Grid, atIndex index: GridIndex) {
-        self.grid = grid
+    init(in game: Game, atIndex index: GridIndex) {
+        self.game = game
         self.index = index
     }
 
@@ -22,7 +22,7 @@ class RevealCell {
     }
 
     private func revealCellAt(index: GridIndex) {
-        let cell = grid.getCellFor(index: index)
+        let cell = game.grid.getCellFor(index: index)
 
         switch cell.state {
         case .hidden, .flagged:
@@ -40,6 +40,7 @@ class RevealCell {
 
     private func explode(cell: Cell) {
         cell.state = .exploded
+        game.finish()
     }
 
     private func revealPlain(cell: Cell) {
@@ -53,7 +54,7 @@ class RevealCell {
     }
 
     private func revealNeighboursOf(index: GridIndex) {
-        let indexes = grid.getNeighboursIndexesFor(index: index)
+        let indexes = game.grid.getNeighboursIndexesFor(index: index)
         for neighboorIndex in indexes {
             revealCellAt(index: neighboorIndex)
         }
