@@ -103,7 +103,7 @@ class DiodonTests: XCTestCase {
     }
 
     func testGivenCellIsFlagged_WhenFlaggingIt_ThenStateIsHidden() {
-        var newCell = Cell()
+        let newCell = Cell()
         newCell.state = .flagged
 
         let aGrid = Grid(matrix: [[newCell]])
@@ -114,9 +114,9 @@ class DiodonTests: XCTestCase {
     }
 
     func testGivenCellIsRevealedOrExploded_WhenFlaggingIt_ThenStateIsNotChanged() {
-        var newCell1 = Cell()
+        let newCell1 = Cell()
         newCell1.state = .revealed
-        var newCell2 = Cell()
+        let newCell2 = Cell()
         newCell2.state = .exploded
 
         let aGrid = Grid(matrix: [[newCell1, newCell2]])

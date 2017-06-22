@@ -16,7 +16,7 @@ enum CellState {
     case hidden, flagged, revealed, exploded
 }
 
-struct Cell {
+class Cell {
     let type: CellType
     var state: CellState = .hidden
     var neighboringBombCount = 0
@@ -31,7 +31,7 @@ struct Cell {
         self.neighboringBombCount = 0
     }
 
-    init() {
+    convenience init() {
         let types: [CellType] = [.bomb, .plain, .plain]
         let randomIndex = Int.random(upperBound: types.count)
         self.init(type: types[randomIndex])

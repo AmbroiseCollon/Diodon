@@ -19,7 +19,7 @@ class FlagCell {
     }
 
     func flagCell() {
-        var cell = grid.getCellFor(index: index)
+        let cell = grid.getCellFor(index: index)
 
         switch cell.state {
         case .hidden:
@@ -29,7 +29,5 @@ class FlagCell {
         case .revealed, .exploded:
             break
         }
-
-        grid.set(cell: cell, atIndex: index)
     }
 }

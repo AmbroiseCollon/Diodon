@@ -43,14 +43,10 @@ class Grid {
     }
 }
 
-// MARK: - Access and modify specific cell
+// MARK: - Access specific cell
 extension Grid {
     func getCellFor(index: GridIndex) -> Cell {
         return matrix[index.row][index.column]
-    }
-
-    func set(cell: Cell, atIndex index: GridIndex) {
-        matrix[index.row][index.column] = cell
     }
 }
 
@@ -114,9 +110,8 @@ extension Grid {
         let neighboringBombedCells = neighboringCells.filter { (cell) -> Bool in
             return cell.type == .bomb
         }
-        var cell = getCellFor(index: index)
+        let cell = getCellFor(index: index)
         cell.neighboringBombCount = neighboringBombedCells.count
-        set(cell: cell, atIndex: index)
     }
 
 

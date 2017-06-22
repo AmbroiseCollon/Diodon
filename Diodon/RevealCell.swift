@@ -25,9 +25,9 @@ class RevealCell {
         case .hidden, .flagged:
             switch cell.type {
             case .bomb:
-                explode(cell: cell, atIndex: index)
+                explode(cell: cell)
             case .plain:
-                revealPlain(cell: cell, atIndex: index)
+                revealPlain(cell: cell)
                 revealNeighboorsIfNeededFor(cell: cell, atIndex: index)
             }
         default:
@@ -35,16 +35,12 @@ class RevealCell {
         }
     }
 
-    private func explode(cell: Cell, atIndex index: GridIndex) {
-        var cell = cell
+    private func explode(cell: Cell) {
         cell.state = .exploded
-        grid.set(cell: cell, atIndex: index)
     }
 
-    private func revealPlain(cell: Cell, atIndex index: GridIndex) {
-        var cell = cell
+    private func revealPlain(cell: Cell) {
         cell.state = .revealed
-        grid.set(cell: cell, atIndex: index)
     }
 
     private func revealNeighboorsIfNeededFor(cell: Cell, atIndex index: GridIndex) {
